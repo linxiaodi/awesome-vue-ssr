@@ -4,6 +4,10 @@ import * as api from '../api/index'
 export default function createStore() {
 	return new Vuex.Store({
 		state: {
+			head: {
+				title: '',
+				meta: {}
+			},
 			home: [],
 			article: {
 				title: '',
@@ -29,6 +33,7 @@ export default function createStore() {
 			},
 			FETCH_ARTICLE(state, data) {
 				Object.assign(state.article, data)
+				state.head.title = data.title
 			}
 		}
 	})

@@ -9,13 +9,17 @@
 </template>
 
 <script>
+import titleMixins from '../../core/mixins/head'
+
 export default {
 	name: 'home',
+	mixins: [titleMixins],
 	computed: {
 		list() {
 			return this.$store.state.home
 		}
 	},
+	title: '博客',
 	async asyncData({ store, route }) {
 		await store.dispatch('FETCH_HOME')
 	}

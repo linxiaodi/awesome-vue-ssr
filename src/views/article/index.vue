@@ -9,15 +9,22 @@
 </template>
 
 <script>
+import titleMixins from '../../core/mixins/head'
+
 export default {
 	name: 'v-article',
+	mixins: [titleMixins],
 	computed: {
 		article() {
 			return this.$store.state.article
 		}
 	},
+	title() {
+		return this.$store.state.article.title
+	},
 	async asyncData({ store, route }) {
 		await store.dispatch('FETCH_ARTICLE')
+		// this.$options.title = store.state.article.title;
 	}
 };
 </script>
