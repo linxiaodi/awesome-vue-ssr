@@ -13,9 +13,9 @@ function getTitle (vm) {
 
 const serverTitleMixin = {
 	created () {
-		const title = getTitle(this, this.$ssrContext.state)
+		const title = getTitle(this)
 		if (title) {
-			this.$ssrContext.title = this.$ssrContext.state.head.title
+			this.$ssrContext.title = title
 		}
 	}
 }
