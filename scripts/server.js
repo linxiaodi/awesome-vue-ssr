@@ -1,7 +1,7 @@
 const express = require('express')
 const fs = require('fs')
 const { createBundleRenderer } = require('vue-server-renderer')
-const { resolve } = require('./build/utils');
+const { resolve } = require('../build/utils');
 const path = require('path')
 
 // 部署入口
@@ -27,8 +27,8 @@ const createRenderer = function(bundle, options = {}) {
 }
 
 // 服务端
-const serverManifest = require('./dist/vue-ssr-server-bundle.json')
-const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+const serverManifest = require('../dist/vue-ssr-server-bundle.json')
+const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 
 const renderer = createRenderer(serverManifest, {
 	clientManifest
