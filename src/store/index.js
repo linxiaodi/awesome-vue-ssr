@@ -13,6 +13,11 @@ export default function createStore() {
 				title: '',
 				desc: '',
 				author: ''
+			},
+			author: {
+				name: '',
+				summary: '',
+				evaluate: ''
 			}
 		},
 		actions: {
@@ -25,6 +30,11 @@ export default function createStore() {
 				return api.getDetail().then((res) => {
 					commit('FETCH_ARTICLE', res.data)
 				})
+			},
+			FETCH_AUTHOR({ commit }) {
+				return api.getAuthor().then((res) => {
+					commit('FETCH_AUTHOR', res.data)
+				})
 			}
 		},
 		mutations: {
@@ -34,8 +44,11 @@ export default function createStore() {
 			FETCH_ARTICLE(state, data) {
 				Object.assign(state.article, data)
 				state.head.title = data.title
+			},
+			FETCH_AUTHOR(state, data) {
+				Object.assign(state.author, data)
+				state.head.title = data.summary
 			}
 		}
 	})
 }
-
