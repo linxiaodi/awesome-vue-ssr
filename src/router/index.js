@@ -14,6 +14,11 @@ export default function createRouter() {
 				path: '/article',
 				name: 'article',
 				component: Article
+			},
+			{
+				path: '/author',
+				name: 'author',
+				component: () => import('../views/article')
 			}
 		]
 	})
